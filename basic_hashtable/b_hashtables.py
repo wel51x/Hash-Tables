@@ -21,7 +21,7 @@ class BasicHashTable:
 # Research and implement the djb2 hash function
 # '''
 def hash(string, max):
-    sum = 0
+    sum = 5381
     for char in string:
         sum += ord(char)
     return sum % max
@@ -33,9 +33,11 @@ def hash(string, max):
 # '''
 def hash_table_insert(hash_table, key, value):
     index = hash(key, hash_table.capacity)
+    data = Pair(key, value)
     if hash_table.storage[index] != None:
-        print(f"Warning overwriting: {hash_table.storage[index]} with {value}")
-    hash_table.storage[index] = value
+        print(f"Warning overwriting: {hash_table.storage[index].key}:"
+              f"{hash_table.storage[index].value} with {key}:{value}")
+    hash_table.storage[index] = data
 
 # '''
 # Fill this in.
@@ -70,6 +72,5 @@ def Testing():
         print("...gone tomorrow (success!)")
     else:
         print("ERROR:  STILL HERE")
-
 
 Testing()
