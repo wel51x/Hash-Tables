@@ -67,9 +67,9 @@ def array_remove(array, element):
     while True:
         if idx == array.count:
             return False
-        if element == array[idx]:
-            for i in range(idx, array.count):
-                array[i] = array[i+1]
+        if element == array.elements[idx]:
+            for i in range(idx, array.count-1):
+                array.elements[i] = array.elements[i+1]
             array.count -= 1
             return True
         idx += 1
@@ -109,4 +109,5 @@ array_insert(arr, "STRING1", 0)
 array_append(arr, "STRING4")
 array_insert(arr, "STRING2", 1)
 array_insert(arr, "STRING3", 2)
+#array_remove(arr, "STRING2")
 array_print(arr)
