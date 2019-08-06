@@ -34,7 +34,7 @@ def hash(string, max):
 def hash_table_insert(hash_table, key, value):
     index = hash(key, hash_table.capacity)
     if hash_table.storage[index] != None:
-        print(f"Warning overwriting: {hash_table.table[index]} with {value}")
+        print(f"Warning overwriting: {hash_table.storage[index]} with {value}")
     hash_table.storage[index] = value
 
 # '''
@@ -61,7 +61,9 @@ def Testing():
     ht = BasicHashTable(16)
 
     hash_table_insert(ht, "line", "Here today...\n")
+    hash_table_insert(ht, "line", "Hair today...\n")
 
+    hash_table_remove(ht, "line")
     hash_table_remove(ht, "line")
 
     if hash_table_retrieve(ht, "line") is None:
